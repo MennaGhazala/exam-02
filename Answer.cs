@@ -29,9 +29,6 @@ namespace exam_02
 
         }
 
-        public override string ToString()
-        {
-            return $"{AnswerId}. {AnswerText}";
-        }
+        
     }
 }
