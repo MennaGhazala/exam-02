@@ -15,7 +15,7 @@ namespace exam_02
         public Subject(int subjuctId , string subjectName ) { 
             SubjectId = subjuctId;
             SubjectName = subjectName;
-           
+            Exam = null;
         }
         
 
@@ -25,28 +25,59 @@ namespace exam_02
 
 
             Console.Write("Enter Exam Type (1: Final, 2: Practical): ");
-            int examType = int.Parse(Console.ReadLine());
-
+            int examType;
+            while (!int.TryParse(Console.ReadLine(), out examType))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid Exam Type.");
+            }
             Console.Write("Enter Exam Time (minutes): ");
-            int time = int.Parse(Console.ReadLine());
+
+            int time;
+
+            while (!int.TryParse(Console.ReadLine(), out time))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid .");
+            }
+           
 
             Console.Write("Enter Number of Questions: ");
-            int numQuestions = int.Parse(Console.ReadLine());
+            int numQuestions;
+            while (!int.TryParse(Console.ReadLine(), out numQuestions))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid .");
+            }
 
-            Exam exam = examType == 1 ? new FinalExam(time, numQuestions) : new PracticalExam(time, numQuestions);
+
+            this.Exam = examType == 1 ? new FinalExam(time, numQuestions) : new PracticalExam(time, numQuestions);
             for (int i = 0; i < numQuestions; i++)
             {
                 Console.Write("Enter Exam Type (1: mcq , 2: True or Flase): ");
-                int QuestionType = int.Parse(Console.ReadLine());
+                int QuestionType;
+
+                while (!int.TryParse(Console.ReadLine(), out QuestionType))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid .");
+                }
+
 
                 Console.Write("Enter Question Body: ");
                 string body = Console.ReadLine();
 
                 Console.Write("Enter Question Mark: ");
-                int mark = int.Parse(Console.ReadLine());
+                int mark;
+
+                while (!int.TryParse(Console.ReadLine(), out mark))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid .");
+                }
 
                 Console.Write("Enter Number of Answers: ");
-                int numAnswers = int.Parse(Console.ReadLine());
+                int numAnswers;
+
+                while (!int.TryParse(Console.ReadLine(), out numAnswers))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid .");
+                }
 
                 List<Answer> answers = new List<Answer>();
                 for (int j = 0; j < numAnswers; j++)
@@ -56,12 +87,16 @@ namespace exam_02
                 }
 
                 Console.Write("Enter Right Answer ID: ");
-                int rightAnswerId = int.Parse(Console.ReadLine());
+                int rightAnswerId ;
 
+                while (!int.TryParse(Console.ReadLine(), out rightAnswerId))
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid .");
+                }
 
 
                 Questions question = QuestionType == 1 ? new MCQQuestion(body, mark, answers, rightAnswerId) : new TrueOrFalseQuestion(body, mark, answers, rightAnswerId);
-                exam.Questions.Add(question);
+               this.Exam.Questions.Add(question);
             }
         }
 

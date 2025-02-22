@@ -13,7 +13,7 @@ namespace exam_02
         public int NumberOfQuestions { get; set; }
 
         public List<Questions> Questions { get; set; }
-
+     
         public TypeExam TypeOfExam { get; set; }
 
         public Exam(int timeOfExam, int numberOfExam, TypeExam typeExam)
@@ -22,11 +22,12 @@ namespace exam_02
             TimeOfExam = timeOfExam;
             NumberOfQuestions = numberOfExam;
             Questions = new List<Questions>();
+           
             TypeOfExam = typeExam;
 
 
         }
-        public abstract void ShowExam();
+        public abstract void ShowResultExam();
 
         public virtual void SolveExam()
         {
@@ -35,7 +36,7 @@ namespace exam_02
             foreach (var question in Questions)
             {
                 question.ShowQuestion();
-                Console.WriteLine("Your Answer (Enter the Answer I): ");
+                Console.WriteLine("Enter the Answer : ");
                 int userAnswerId;
 
                 while (!int.TryParse(Console.ReadLine(), out userAnswerId))

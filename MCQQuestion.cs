@@ -19,11 +19,11 @@ namespace exam_02
 
         public override void ShowQuestion()
         {
-            Console.WriteLine($"Header: {Header}");
-            Console.WriteLine($"Body: {Body}");
+            Console.WriteLine($"    {Header}");
+            Console.WriteLine($"-- {Body}");
             foreach (var answer in Answers)
             {
-                Console.WriteLine(answer);
+                Console.WriteLine(answer.AnswerId + ".  " + answer.AnswerText);
             }
 
         }

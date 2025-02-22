@@ -13,7 +13,7 @@ namespace exam_02
         
         }
 
-        public override void ShowExam()
+        public override void ShowResultExam()
         {
             int score = 0;
 
