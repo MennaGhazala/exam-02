@@ -11,8 +11,7 @@ namespace exam_02
         public int AnswerId { get; set; }
         public string AnswerText { get; set; }
 
-        public Answer[] Answers { get; set; }
-        public Answer RightAnswer { get; set; }
+       
 
         public Answer(int answerId , string answerText ) { 
 
